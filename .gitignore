@@ -1,0 +1,15 @@
+# VS Code directories and files
+.vscode/
+.history
+
+# JetBrains IDE directories
+.idea/
+.idea_modules/
+.idea/.name
+
+# dotenv environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
