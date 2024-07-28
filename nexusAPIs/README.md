@@ -39,3 +39,8 @@ python manage.py migrate
 ```shell
 python manage.py startapp ${appname}
 ```
+
+## 添加超级用户
+```shell
+python manage.py createsuperuser
+```
