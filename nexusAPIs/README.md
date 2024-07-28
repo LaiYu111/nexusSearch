@@ -34,6 +34,10 @@ python manage.py runserver
 python manage.py makemigrations
 python manage.py migrate
 ```
+Create local admin user
+```shell
+python manage.py createsuperuser
+```
 
 ## 添加 Django Apps
 ```shell
