@@ -6,17 +6,19 @@
 # cd 到项目根目录
 # python 3.11 (3.12 应该没啥问题)
 # 创建 .venv
-python -m venv .vene
+python -m venv .venv
 # 激活环境
-.venv/Scripts/activate
-pip install -r requirements.txt
+source .venv/Scripts/activate
+# mac 环境
+source .venv/bin/activate
+
 ```
 
 # 项目依赖包
 
 ```shell
 # 下载 requirements.txt
-pip install requirements.txt
+pip install -r requirements.txt
 
 # 保存依赖包
 pip freeze > requirements.txt
