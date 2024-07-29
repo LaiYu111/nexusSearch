@@ -1,18 +1,26 @@
+import path from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path';
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 3000,
-    host: "0.0.0.0"
+  define: {
+    'process.env': process.env
   },
-
+  plugins: [react()],
   resolve: {
     alias: {
-      // eslint-disable-next-line no-undef
-      '@': path.resolve(__dirname, 'src')
+      '@tailwindConfig': path.resolve(__dirname, 'tailwind.config.js'),
+    },
+  },
+  optimizeDeps: {
+    include: [
+      '@tailwindConfig',
+    ]
+  }, 
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true,
     }
-  }
+  } 
 })

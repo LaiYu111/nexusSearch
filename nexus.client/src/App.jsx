@@ -1,36 +1,36 @@
-import { useState } from 'react'
-import './App.css'
-import {setSystem} from "@/redux/actions/systemAction.js";
-import {useDispatch} from "react-redux";
-import {Route, Routes} from "react-router-dom";
-import HomePage from "@/pages/HomePage/index.jsx";
+import React, { useEffect } from 'react';
+import {
+  Routes,
+  Route,
+  useLocation
+} from 'react-router-dom';
+
+import './css/style.css';
+
+import './charts/ChartjsConfig';
+
+// Import pages
+import Dashboard from './pages/Dashboard';
+import Login from './pages/LogIn'
 
 function App() {
-  const dispatch = useDispatch()
-  const [count, setCount] = useState(0)
 
-  const handleRedux = () => {
-    setCount((prevState) => prevState + 1)
-    dispatch(setSystem(count))
-  }
+  const location = useLocation();
+
+  useEffect(() => {
+    document.querySelector('html').style.scrollBehavior = 'auto'
+    window.scroll({ top: 0 })
+    document.querySelector('html').style.scrollBehavior = ''
+  }, [location.pathname]); // triggered on route change
 
   return (
     <>
-      <div className="card">
-        <button
-          onClick={() => handleRedux((count) => count + 1)}
-        >
-          count is {count}
-        </button>
-
-      </div>
-      <section>
-        <Routes>
-          <Route path={`/`} element={<HomePage />} />
-        </Routes>
-      </section>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
